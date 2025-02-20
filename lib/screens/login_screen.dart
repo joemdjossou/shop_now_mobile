@@ -196,38 +196,6 @@ class LoginScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    AppGaps.hGap20,
-                    SizedBox(
-                      height: 50,
-                      width: double.infinity,
-                      child: ElevatedButton(
-                        style: ButtonStyle(
-                          backgroundColor: WidgetStateProperty.all(
-                            AppColors.blueSkyLightColor,
-                          ),
-                        ),
-                        onPressed: () {},
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SvgPicture.asset(
-                              AppAssetImages.facebookLogoSVG,
-                              height: 32,
-                              width: 32,
-                            ),
-                            AppGaps.wGap30,
-                            Text(
-                              "Login with Facebook",
-                              style: Helper.getTheme(context)
-                                  .titleMedium
-                                  ?.copyWith(
-                                    color: AppColors.darkColor,
-                                  ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
                     AppGaps.hGap40,
                     GestureDetector(
                       onTap: () {

@@ -2,10 +2,12 @@ import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shop_now_mobile/const/app_page_names.dart';
 import 'package:shop_now_mobile/utils/dialogs.dart';
+import 'package:shop_now_mobile/utils/helper.dart';
 
 class LoginScreenController extends GetxController {
   //text editing controllers
@@ -48,11 +50,8 @@ class LoginScreenController extends GetxController {
   }
 
   void googleLogin() async {
-    AppDialogs.showImageProcessingDialog();
     try {
-      final GoogleSignInAccount? googleUser =
-          // await GoogleSignIn(scopes: <String>["email"]).signIn();
-          await GoogleSignIn().signIn();
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
       // Obtain the auth details from the request
       final GoogleSignInAuthentication? googleAuth =
@@ -69,14 +68,14 @@ class LoginScreenController extends GetxController {
           await FirebaseAuth.instance.signInWithCredential(credential);
       Get.offAllNamed(AppPageNames.homeScreen);
       update();
-    } on FirebaseAuthException catch (e) {
-      //pop the circle and show the error message
-      Get.back();
-      log('Firebase catch error: ${e.code}');
-      update();
-      //show error message
-      //show error to user
-      AppDialogs.showErrorDialog(messageText: e.code);
+    } catch (e) {
+      log(e.toString());
+      if (e is PlatformException) {
+        AppDialogs.showErrorDialog(messageText: e.code);
+      } else {
+        AppDialogs.showErrorDialog(messageText: e.toString());
+      }
+      return null;
     }
   }
 }

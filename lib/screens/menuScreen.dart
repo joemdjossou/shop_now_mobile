@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_now_mobile/const/app_colors.dart';
+import 'package:shop_now_mobile/const/app_images.dart';
 import 'package:shop_now_mobile/screens/dessertScreen.dart';
 import 'package:shop_now_mobile/utils/helper.dart';
 import 'package:shop_now_mobile/widgets/custom_nav_bar.dart';
@@ -69,8 +70,7 @@ class MenuScreen extends StatelessWidget {
                                     height: 60,
                                     width: 60,
                                     child: Image.asset(
-                                      Helper.getAssetName(
-                                          "western2.jpg", "real"),
+                                      AppAssetImages.shoesJPG,
                                       fit: BoxFit.cover,
                                     ),
                                   ),
@@ -88,8 +88,7 @@ class MenuScreen extends StatelessWidget {
                                     height: 60,
                                     width: 60,
                                     child: Image.asset(
-                                      Helper.getAssetName(
-                                          "coffee2.jpg", "real"),
+                                      AppAssetImages.electronicsJPG,
                                       fit: BoxFit.cover,
                                     ),
                                   ),
@@ -132,8 +131,7 @@ class MenuScreen extends StatelessWidget {
                                     height: 80,
                                     width: 80,
                                     child: Image.asset(
-                                      Helper.getAssetName(
-                                          "hamburger3.jpg", "real"),
+                                      AppAssetImages.clothingJPG,
                                       fit: BoxFit.cover,
                                     ),
                                   ),
