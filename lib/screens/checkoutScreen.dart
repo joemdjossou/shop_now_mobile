@@ -8,6 +8,8 @@ import 'package:shop_now_mobile/widgets/customTextInput.dart';
 
 class CheckoutScreen extends StatelessWidget {
   static const routeName = "/checkoutScreen";
+
+  const CheckoutScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class Helper {
@@ -16,6 +17,11 @@ class Helper {
 
   static TextTheme getTheme(BuildContext context) {
     return Theme.of(context).textTheme;
+  }
+
+  static String getUserName() {
+    final user = FirebaseAuth.instance.currentUser;
+    return user?.displayName ?? user?.email ?? "Anonymous";
   }
 
   /// Generate Material color

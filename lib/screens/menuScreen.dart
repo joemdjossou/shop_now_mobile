@@ -7,6 +7,8 @@ import 'package:shop_now_mobile/widgets/searchBar.dart';
 
 class MenuScreen extends StatelessWidget {
   static const routeName = "/menuScreen";
+
+  const MenuScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +37,7 @@ class MenuScreen extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
-                SearchBarCustom(title: "Search Food"),
+                SearchBarCustom(title: "Search categories"),
                 SizedBox(
                   height: 20,
                 ),
@@ -73,7 +75,7 @@ class MenuScreen extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                name: "Food",
+                                name: "Shoes",
                                 count: "120",
                               ),
                               SizedBox(
@@ -92,7 +94,7 @@ class MenuScreen extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                name: "Beverage",
+                                name: "Electronics",
                                 count: "220",
                               ),
                               SizedBox(
@@ -116,7 +118,7 @@ class MenuScreen extends StatelessWidget {
                                       ),
                                     ),
                                   ),
-                                  name: "Desserts",
+                                  name: "Food",
                                   count: "135",
                                 ),
                               ),
@@ -136,7 +138,7 @@ class MenuScreen extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                name: "Promotions",
+                                name: "Clothing",
                                 count: "25",
                               ),
                             ],

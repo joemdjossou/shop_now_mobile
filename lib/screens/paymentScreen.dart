@@ -7,6 +7,8 @@ import 'package:shop_now_mobile/widgets/customTextInput.dart';
 
 class PaymentScreen extends StatelessWidget {
   static const routeName = "/paymentScreen";
+
+  const PaymentScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

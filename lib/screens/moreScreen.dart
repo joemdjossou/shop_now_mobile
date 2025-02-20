@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_now_mobile/const/app_colors.dart';
+import 'package:shop_now_mobile/const/app_images.dart';
 import 'package:shop_now_mobile/screens/aboutScreen.dart';
 import 'package:shop_now_mobile/screens/inboxScreen.dart';
 import 'package:shop_now_mobile/screens/myOrderScreen.dart';
@@ -10,6 +11,8 @@ import 'package:shop_now_mobile/widgets/custom_nav_bar.dart';
 
 class MoreScreen extends StatelessWidget {
   static const routeName = "/moreScreen";
+
+  const MoreScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -94,6 +97,30 @@ class MoreScreen extends StatelessWidget {
                     name: "About Us",
                     handler: () {
                       Navigator.of(context).pushNamed(AboutScreen.routeName);
+                    },
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  MoreCard(
+                    image: Image.asset(
+                      AppAssetImages.dropdownPNG,
+                    ),
+                    name: "Order History",
+                    handler: () {
+                      // Navigator.of(context).pushNamed(AboutScreen.routeName);
+                    },
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  MoreCard(
+                    image: Image.asset(
+                      AppAssetImages.mailPNG,
+                    ),
+                    name: "Support",
+                    handler: () {
+                      // Navigator.of(context).pushNamed(AboutScreen.routeName);
                     },
                   ),
                   SizedBox(

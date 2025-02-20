@@ -8,6 +8,8 @@ import 'package:shop_now_mobile/widgets/custom_nav_bar.dart';
 
 class InboxScreen extends StatelessWidget {
   static const routeName = "/inboxScreen";
+
+  const InboxScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

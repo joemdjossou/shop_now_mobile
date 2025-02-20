@@ -1,5 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:shop_now_mobile/const/app_colors.dart';
+import 'package:shop_now_mobile/const/app_gaps.dart';
+import 'package:shop_now_mobile/const/app_gaps.dart';
+import 'package:shop_now_mobile/const/app_gaps.dart';
+import 'package:shop_now_mobile/const/app_gaps.dart';
+import 'package:shop_now_mobile/const/app_gaps.dart';
+import 'package:shop_now_mobile/const/app_gaps.dart';
+import 'package:shop_now_mobile/const/app_gaps.dart';
+import 'package:shop_now_mobile/const/app_gaps.dart';
+import 'package:shop_now_mobile/const/app_text_styles.dart';
+import 'package:shop_now_mobile/controllers/profile_screen_controller.dart';
 import 'package:shop_now_mobile/utils/helper.dart';
 import 'package:shop_now_mobile/widgets/custom_nav_bar.dart';
 
@@ -9,163 +20,166 @@ class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          SafeArea(
-            child: SizedBox(
-              height: Helper.getScreenHeight(context),
-              width: Helper.getScreenWidth(context),
-              child: SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Profile",
-                            style: Helper.getTheme(context).headlineLarge,
-                          ),
-                          Image.asset(
-                            Helper.getAssetName("cart.png", "virtual"),
-                          )
-                        ],
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      ClipOval(
-                        child: Stack(
+    return GetBuilder(
+        init: ProfileScreenController(),
+        global: false,
+        builder: (controller) {
+          return Scaffold(
+            body: Stack(
+              children: [
+                SafeArea(
+                  child: SingleChildScrollView(
+                    child: SizedBox(
+                      height: Helper.getScreenHeight(context),
+                      width: Helper.getScreenWidth(context),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                        child: Column(
                           children: [
-                            Container(
-                              height: 80,
-                              width: 80,
-                              child: Image.asset(
-                                Helper.getAssetName(
-                                  "user.jpg",
-                                  "real",
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "Profile",
+                                  style: Helper.getTheme(context).headlineLarge,
                                 ),
-                                fit: BoxFit.cover,
+                                IconButton(
+                                  onPressed: controller.signOut,
+                                  icon: Icon(
+                                    Icons.logout_outlined,
+                                    color: AppColors.primaryMaterialColor,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            AppGaps.hGap20,
+                            ClipOval(
+                              child: Stack(
+                                children: [
+                                  Container(
+                                    height: 80,
+                                    width: 80,
+                                    child: Image.asset(
+                                      Helper.getAssetName(
+                                        "user.jpg",
+                                        "real",
+                                      ),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  Positioned(
+                                    bottom: 0,
+                                    child: Container(
+                                      height: 20,
+                                      width: 80,
+                                      color: Colors.black.withOpacity(0.3),
+                                      child: Image.asset(Helper.getAssetName(
+                                          "camera.png", "virtual")),
+                                    ),
+                                  )
+                                ],
                               ),
                             ),
-                            Positioned(
-                              bottom: 0,
-                              child: Container(
-                                height: 20,
-                                width: 80,
-                                color: Colors.black.withOpacity(0.3),
-                                child: Image.asset(Helper.getAssetName(
-                                    "camera.png", "virtual")),
+                            AppGaps.hGap10,
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Image.asset(
+                                  Helper.getAssetName(
+                                      "edit_filled.png", "virtual"),
+                                ),
+                                AppGaps.wGap5,
+                                const Text(
+                                  "Edit Profile",
+                                  style:
+                                      TextStyle(color: AppColors.orangeColor),
+                                ),
+                              ],
+                            ),
+                            AppGaps.hGap10,
+                            Text(
+                              "Hi there ${controller.user.email}!",
+                              style: Helper.getTheme(context)
+                                  .headlineMedium
+                                  ?.copyWith(
+                                    color: AppColors.greyDark,
+                                  ),
+                            ),
+                            AppGaps.hGap5,
+                            InkWell(
+                              onTap: controller.signOut,
+                              child: Text(
+                                "Sign Out",
+                                style: AppTextStyles.bodyBoldTextStyle.copyWith(
+                                  color: AppColors.primaryMaterialColor,
+                                ),
                               ),
-                            )
+                            ),
+                            AppGaps.hGap40,
+                            CustomFormImput(
+                              label: "Name",
+                              value: controller.user.displayName ?? 'User Name',
+                            ),
+                            AppGaps.hGap20,
+                            CustomFormImput(
+                              label: "Email",
+                              value: controller.user.email ?? 'user@mail.com',
+                            ),
+                            AppGaps.hGap20,
+                            CustomFormImput(
+                              label: "Mobile No",
+                              value: controller.user.phoneNumber ??
+                                  '+44 123 456 789',
+                            ),
+                            AppGaps.hGap20,
+                            CustomFormImput(
+                              label: "Address",
+                              value: "No 23, 6th Lane, Colombo 03",
+                            ),
+                            AppGaps.hGap20,
+                            CustomFormImput(
+                              label: "Password",
+                              value: "Emilia Clarke",
+                              isPassword: true,
+                            ),
+                            AppGaps.hGap20,
+                            CustomFormImput(
+                              label: "Confirm Password",
+                              value: "Emilia Clarke",
+                              isPassword: true,
+                            ),
+                            AppGaps.hGap20,
+                            SizedBox(
+                              height: 50,
+                              width: double.infinity,
+                              child: ElevatedButton(
+                                onPressed: () {},
+                                child: const Text(
+                                  "Save",
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    color: AppColors.whiteColor,
+                                  ),
+                                ),
+                              ),
+                            ),
                           ],
                         ),
                       ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            Helper.getAssetName("edit_filled.png", "virtual"),
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            "Edit Profile",
-                            style: TextStyle(color: AppColors.orangeColor),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        "Hi there Emilia!",
-                        style:
-                            Helper.getTheme(context).headlineMedium?.copyWith(
-                                  color: AppColors.greyDark,
-                                ),
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Text("Sign Out"),
-                      SizedBox(
-                        height: 40,
-                      ),
-                      CustomFormImput(
-                        label: "Name",
-                        value: "Emilia Clarke",
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      CustomFormImput(
-                        label: "Email",
-                        value: "emiliaclarke@email.com",
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      CustomFormImput(
-                        label: "Mobile No",
-                        value: "emiliaclarke@email.com",
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      CustomFormImput(
-                        label: "Address",
-                        value: "No 23, 6th Lane, Colombo 03",
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      CustomFormImput(
-                        label: "Password",
-                        value: "Emilia Clarke",
-                        isPassword: true,
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      CustomFormImput(
-                        label: "Confirm Password",
-                        value: "Emilia Clarke",
-                        isPassword: true,
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      SizedBox(
-                        height: 50,
-                        width: double.infinity,
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          child: Text("Save"),
-                        ),
-                      )
-                    ],
+                    ),
                   ),
                 ),
-              ),
+                Positioned(
+                  bottom: 0,
+                  left: 0,
+                  child: CustomNavBar(
+                    profile: true,
+                  ),
+                ),
+              ],
             ),
-          ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            child: CustomNavBar(
-              profile: true,
-            ),
-          ),
-        ],
-      ),
-    );
+          );
+        });
   }
 }
 

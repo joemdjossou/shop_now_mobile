@@ -31,5 +31,5 @@ class AppColors {
 
   /// Custom MaterialColor from Helper function
   static final MaterialColor primaryMaterialColor =
-      Helper.generateMaterialColor(AppColors.purpleColor);
+      Helper.generateMaterialColor(AppColors.orangeColor);
 }
