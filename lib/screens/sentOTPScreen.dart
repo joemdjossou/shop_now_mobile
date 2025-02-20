@@ -6,6 +6,8 @@ import './newPwScreen.dart';
 
 class SendOTPScreen extends StatelessWidget {
   static const routeName = "/sendOTP";
+
+  const SendOTPScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

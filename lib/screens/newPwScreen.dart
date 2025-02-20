@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:shop_now_mobile/screens/loginScreen.dart';
+import 'package:shop_now_mobile/screens/login_screen.dart';
 import '../utils/helper.dart';
 import '../widgets/customTextInput.dart';
 import './introScreen.dart';
 
 class NewPwScreen extends StatelessWidget {
   static const routeName = "/newPw";
+
+  const NewPwScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -8,6 +8,8 @@ import 'package:shop_now_mobile/widgets/custom_nav_bar.dart';
 
 class NotificationScreen extends StatelessWidget {
   static const routeName = "/notiScreen";
+
+  const NotificationScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,21 +64,21 @@ class NotificationScreen extends StatelessWidget {
               ),
               NotiCard(
                 title: "Lorem ipsum dolor sit amet, consectetur",
-                time: "05 Sep 2020",
+                time: "17 Feb 2025",
                 color: AppColors.placeholderBg,
               ),
               NotiCard(
                 title: "Lorem ipsum dolor sit amet, consectetur",
-                time: "12 Aug 2020",
+                time: "12 Feb 2025",
                 color: AppColors.placeholderBg,
               ),
               NotiCard(
                 title: "Lorem ipsum dolor sit amet, consectetur",
-                time: "20 Jul 2020",
+                time: "20 Jan 2025",
               ),
               NotiCard(
                 title: "Lorem ipsum dolor sit amet, consectetur",
-                time: "12 Jul 2020",
+                time: "12 Jan 2025",
               ),
             ],
           )),

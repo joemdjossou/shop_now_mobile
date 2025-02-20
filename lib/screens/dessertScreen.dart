@@ -6,6 +6,8 @@ import 'package:shop_now_mobile/widgets/searchBar.dart';
 
 class DessertScreen extends StatelessWidget {
   static const routeName = '/dessertScreen';
+
+  const DessertScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

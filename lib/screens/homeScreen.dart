@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shop_now_mobile/const/app_gaps.dart';
+import 'package:shop_now_mobile/const/app_images.dart';
 
 import '../const/app_colors.dart';
 import '../utils/helper.dart';
@@ -20,9 +23,7 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
-                    height: 20,
-                  ),
+                  AppGaps.hGap20,
                   Padding(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 20,
@@ -30,17 +31,18 @@ class HomeScreen extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          "Good morning Akila!",
-                          style: Helper.getTheme(context).headlineLarge,
+                        Flexible(
+                          child: Text(
+                            "Good morning ${Helper.getUserName()}!",
+                            overflow: TextOverflow.ellipsis,
+                            style: Helper.getTheme(context).headlineLarge,
+                          ),
                         ),
                         Image.asset(Helper.getAssetName("cart.png", "virtual"))
                       ],
                     ),
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
+                  AppGaps.hGap20,
                   Padding(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 20,
@@ -56,10 +58,22 @@ class HomeScreen extends StatelessWidget {
                         width: 250,
                         child: DropdownButton(
                           value: "current location",
-                          items: [
+                          items: const [
                             DropdownMenuItem(
                               child: Text("Current Location"),
                               value: "current location",
+                            ),
+                            DropdownMenuItem(
+                              child: Text("Home"),
+                              value: "Home",
+                            ),
+                            DropdownMenuItem(
+                              child: Text("Office"),
+                              value: "Office",
+                            ),
+                            DropdownMenuItem(
+                              child: Text("Other"),
+                              value: "Other",
                             ),
                           ],
                           icon: Image.asset(
@@ -72,15 +86,21 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
+                  AppGaps.hGap20,
                   SearchBarCustom(
-                    title: "Search Food",
+                    title: "Search Items",
                   ),
-                  SizedBox(
-                    height: 20,
+                  AppGaps.hGap20,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                    ),
+                    child: Text(
+                      "Categories",
+                      style: Helper.getTheme(context).headlineLarge,
+                    ),
                   ),
+                  AppGaps.hGap20,
                   Container(
                     width: double.infinity,
                     padding: const EdgeInsets.only(
@@ -92,14 +112,36 @@ class HomeScreen extends StatelessWidget {
                         children: [
                           CategoryCard(
                             image: Image.asset(
+                              AppAssetImages.clothingJPG,
+                              fit: BoxFit.cover,
+                            ),
+                            name: "Clothing",
+                          ),
+                          AppGaps.wGap10,
+                          CategoryCard(
+                            image: Image.asset(
+                              AppAssetImages.shoesJPG,
+                              fit: BoxFit.cover,
+                            ),
+                            name: "Shoes",
+                          ),
+                          AppGaps.wGap10,
+                          CategoryCard(
+                            image: Image.asset(
+                              AppAssetImages.electronicsJPG,
+                              fit: BoxFit.cover,
+                            ),
+                            name: "Electronics",
+                          ),
+                          AppGaps.wGap10,
+                          CategoryCard(
+                            image: Image.asset(
                               Helper.getAssetName("hamburger2.jpg", "real"),
                               fit: BoxFit.cover,
                             ),
                             name: "Offers",
                           ),
-                          SizedBox(
-                            width: 10,
-                          ),
+                          AppGaps.wGap10,
                           CategoryCard(
                             image: Image.asset(
                               Helper.getAssetName("rice2.jpg", "real"),
@@ -107,9 +149,7 @@ class HomeScreen extends StatelessWidget {
                             ),
                             name: "Sri Lankan",
                           ),
-                          SizedBox(
-                            width: 10,
-                          ),
+                          AppGaps.wGap10,
                           CategoryCard(
                             image: Image.asset(
                               Helper.getAssetName("fruit.jpg", "real"),
@@ -117,9 +157,7 @@ class HomeScreen extends StatelessWidget {
                             ),
                             name: "Italian",
                           ),
-                          SizedBox(
-                            width: 10,
-                          ),
+                          AppGaps.wGap10,
                           CategoryCard(
                             image: Image.asset(
                               Helper.getAssetName("rice.jpg", "real"),
@@ -127,16 +165,77 @@ class HomeScreen extends StatelessWidget {
                             ),
                             name: "Indian",
                           ),
-                          SizedBox(
-                            width: 10,
-                          ),
+                          AppGaps.wGap10,
                         ],
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: 50,
+                  AppGaps.hGap20,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                    ),
+                    child: Text(
+                      "Popular Brands",
+                      style: Helper.getTheme(context).headlineLarge,
+                    ),
                   ),
+                  AppGaps.hGap20,
+                  // shoes brand
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.only(
+                      left: 20,
+                    ),
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          BrandCard(
+                            image: SvgPicture.asset(
+                              AppAssetImages.adidasSVG,
+                              fit: BoxFit.scaleDown,
+                            ),
+                            name: "Adidas",
+                          ),
+                          AppGaps.wGap25,
+                          BrandCard(
+                            image: SvgPicture.asset(
+                              AppAssetImages.nikeSVG,
+                              fit: BoxFit.scaleDown,
+                            ),
+                            name: "Nike",
+                          ),
+                          AppGaps.wGap25,
+                          BrandCard(
+                            image: SvgPicture.asset(
+                              AppAssetImages.vansSVG,
+                              fit: BoxFit.scaleDown,
+                            ),
+                            name: "Vans",
+                          ),
+                          AppGaps.wGap25,
+                          BrandCard(
+                            image: SvgPicture.asset(
+                              AppAssetImages.pumaSVG,
+                              fit: BoxFit.scaleDown,
+                            ),
+                            name: "Puma",
+                          ),
+                          AppGaps.wGap25,
+                          BrandCard(
+                            image: SvgPicture.asset(
+                              AppAssetImages.jordanSVG,
+                              fit: BoxFit.scaleDown,
+                            ),
+                            name: "Jordan",
+                          ),
+                          AppGaps.wGap25,
+                        ],
+                      ),
+                    ),
+                  ),
+                  AppGaps.hGap50,
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
                     child: Row(
@@ -150,9 +249,7 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
+                  AppGaps.hGap20,
                   RestaurantCard(
                     image: Image.asset(
                       Helper.getAssetName("pizza2.jpg", "real"),
@@ -174,9 +271,36 @@ class HomeScreen extends StatelessWidget {
                     ),
                     name: "Bakes by Tella",
                   ),
-                  SizedBox(
-                    height: 50,
+                  AppGaps.hGap50,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Popular Shoes",
+                          style: Helper.getTheme(context).headlineLarge,
+                        ),
+                        TextButton(onPressed: () {}, child: Text("View all"))
+                      ],
+                    ),
                   ),
+                  AppGaps.hGap20,
+                  RestaurantCard(
+                    image: Image.asset(
+                      AppAssetImages.nikeShoePNG,
+                      fit: BoxFit.cover,
+                    ),
+                    name: "Nike Jordan 1 Retro High Tie Dye",
+                  ),
+                  RestaurantCard(
+                    image: Image.asset(
+                      AppAssetImages.shoesJPG,
+                      fit: BoxFit.cover,
+                    ),
+                    name: "Shoe",
+                  ),
+                  AppGaps.hGap50,
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
                     child: Row(
@@ -193,9 +317,7 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
+                  AppGaps.hGap20,
                   Container(
                     width: double.infinity,
                     padding: const EdgeInsets.only(left: 20),
@@ -224,9 +346,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
+                  AppGaps.hGap20,
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Row(
@@ -568,6 +688,41 @@ class CategoryCard extends StatelessWidget {
         SizedBox(
           height: 5,
         ),
+        Text(
+          name,
+          style: Helper.getTheme(context)
+              .headlineMedium
+              ?.copyWith(color: AppColors.greyDark, fontSize: 16),
+        ),
+      ],
+    );
+  }
+}
+
+class BrandCard extends StatelessWidget {
+  final String name;
+  final SvgPicture image;
+
+  const BrandCard({
+    super.key,
+    required this.name,
+    required this.image,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        ClipRRect(
+          borderRadius: BorderRadius.circular(100),
+          child: Container(
+            color: AppColors.placeholderBg,
+            width: 70,
+            height: 70,
+            child: image,
+          ),
+        ),
+        AppGaps.hGap5,
         Text(
           name,
           style: Helper.getTheme(context)

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_now_mobile/const/app_colors.dart';
+import 'package:shop_now_mobile/const/app_images.dart';
 import 'package:shop_now_mobile/screens/dessertScreen.dart';
 import 'package:shop_now_mobile/utils/helper.dart';
 import 'package:shop_now_mobile/widgets/custom_nav_bar.dart';
@@ -7,6 +8,8 @@ import 'package:shop_now_mobile/widgets/searchBar.dart';
 
 class MenuScreen extends StatelessWidget {
   static const routeName = "/menuScreen";
+
+  const MenuScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +38,7 @@ class MenuScreen extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
-                SearchBarCustom(title: "Search Food"),
+                SearchBarCustom(title: "Search categories"),
                 SizedBox(
                   height: 20,
                 ),
@@ -67,13 +70,12 @@ class MenuScreen extends StatelessWidget {
                                     height: 60,
                                     width: 60,
                                     child: Image.asset(
-                                      Helper.getAssetName(
-                                          "western2.jpg", "real"),
+                                      AppAssetImages.shoesJPG,
                                       fit: BoxFit.cover,
                                     ),
                                   ),
                                 ),
-                                name: "Food",
+                                name: "Shoes",
                                 count: "120",
                               ),
                               SizedBox(
@@ -86,13 +88,12 @@ class MenuScreen extends StatelessWidget {
                                     height: 60,
                                     width: 60,
                                     child: Image.asset(
-                                      Helper.getAssetName(
-                                          "coffee2.jpg", "real"),
+                                      AppAssetImages.electronicsJPG,
                                       fit: BoxFit.cover,
                                     ),
                                   ),
                                 ),
-                                name: "Beverage",
+                                name: "Electronics",
                                 count: "220",
                               ),
                               SizedBox(
@@ -116,7 +117,7 @@ class MenuScreen extends StatelessWidget {
                                       ),
                                     ),
                                   ),
-                                  name: "Desserts",
+                                  name: "Food",
                                   count: "135",
                                 ),
                               ),
@@ -130,13 +131,12 @@ class MenuScreen extends StatelessWidget {
                                     height: 80,
                                     width: 80,
                                     child: Image.asset(
-                                      Helper.getAssetName(
-                                          "hamburger3.jpg", "real"),
+                                      AppAssetImages.clothingJPG,
                                       fit: BoxFit.cover,
                                     ),
                                   ),
                                 ),
-                                name: "Promotions",
+                                name: "Clothing",
                                 count: "25",
                               ),
                             ],

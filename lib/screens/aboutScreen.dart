@@ -5,6 +5,8 @@ import 'package:shop_now_mobile/const/app_colors.dart';
 
 class AboutScreen extends StatelessWidget {
   static const routeName = "/aboutScreen";
+
+  const AboutScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

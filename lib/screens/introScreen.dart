@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shop_now_mobile/const/app_colors.dart';
 import 'package:shop_now_mobile/screens/homeScreen.dart';
 import 'package:shop_now_mobile/screens/landingScreen.dart';
-import 'package:shop_now_mobile/screens/loginScreen.dart';
+import 'package:shop_now_mobile/screens/login_screen.dart';
 import 'package:shop_now_mobile/utils/helper.dart';
 
 class IntroScreens extends StatefulWidget {

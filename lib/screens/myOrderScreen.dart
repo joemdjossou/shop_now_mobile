@@ -6,6 +6,8 @@ import 'package:shop_now_mobile/widgets/custom_nav_bar.dart';
 
 class MyOrderScreen extends StatelessWidget {
   static const routeName = "/myOrderScreen";
+
+  const MyOrderScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

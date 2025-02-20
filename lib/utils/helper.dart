@@ -1,5 +1,7 @@
 import 'dart:math';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class Helper {
   static double getScreenWidth(BuildContext context) {
@@ -16,6 +18,20 @@ class Helper {
 
   static TextTheme getTheme(BuildContext context) {
     return Theme.of(context).textTheme;
+  }
+
+  static String getUserName() {
+    final user = FirebaseAuth.instance.currentUser;
+    return user?.displayName ?? user?.email ?? "Anonymous";
+  }
+
+  static Future<void> googleLogout() async {
+    final googleSignIn = GoogleSignIn();
+    final isGoogleSignedIn = await googleSignIn.isSignedIn();
+    if (isGoogleSignedIn) {
+      await FirebaseAuth.instance.signOut();
+      await GoogleSignIn().signOut();
+    }
   }
 
   /// Generate Material color

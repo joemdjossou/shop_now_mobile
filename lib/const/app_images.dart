@@ -14,6 +14,12 @@ class AppAssetImages {
   static const String searchSVGLogoLine = 'assets/icons/search.svg';
   static const String menuSVGLogoLine = 'assets/icons/menu.svg';
   static const String notificationSVGLogoLine = 'assets/icons/notification.svg';
+  /* <-------- Shoes brand SVG ----------> */
+  static const String adidasSVG = 'assets/icons/adidas.svg';
+  static const String nikeSVG = 'assets/icons/nike.svg';
+  static const String pumaSVG = 'assets/icons/puma.svg';
+  static const String vansSVG = 'assets/icons/vans.svg';
+  static const String jordanSVG = 'assets/icons/jordan.svg';
 
   /* <-------- Real Images --------> */
   static const String applePieJPG = 'assets/images/real/apple_pie.jpg';
@@ -44,6 +50,10 @@ class AppAssetImages {
   static const String visa2PNG = 'assets/images/real/visa2.png';
   static const String westernPNG = 'assets/images/real/western.png';
   static const String western2JPG = 'assets/images/real/western2.jpg';
+  static const String clothingJPG = 'assets/images/real/clothing.jpg';
+  static const String electronicsJPG = 'assets/images/real/electronics.jpg';
+  static const String shoesJPG = 'assets/images/real/shoes.jpg';
+  static const String nikeShoePNG = 'assets/images/real/nikeShoe.png';
 
   /* <-------- Virtual Images --------> */
   static const String addToCartPNG = 'assets/images/virtual/add_to_cart.png';

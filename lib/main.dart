@@ -1,8 +1,13 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:shop_now_mobile/const/app_routes.dart';
+import 'package:shop_now_mobile/firebase_options.dart';
 import 'package:shop_now_mobile/screens/changeAddressScreen.dart';
-import './screens/spashScreen.dart';
+import './screens/splashScreen.dart';
 import './screens/landingScreen.dart';
-import './screens/loginScreen.dart';
+import './screens/login_screen.dart';
 import './screens/signUpScreen.dart';
 import './screens/forgetPwScreen.dart';
 import './screens/sentOTPScreen.dart';
@@ -23,8 +28,12 @@ import './screens/myOrderScreen.dart';
 import './screens/checkoutScreen.dart';
 import 'const/app_colors.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  await GoogleSignIn().signInSilently(); // Ensure Google Sign-In is initialized
   runApp(const MyApp());
 }
 
@@ -34,7 +43,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'ShopNow',
       theme: ThemeData(
@@ -83,8 +92,11 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
+      getPages: AppPages.pages,
+      unknownRoute: AppPages.unknownScreenPageRoute,
       home: SplashScreen(),
       routes: {
+        SplashScreen.routeName: (context) => SplashScreen(),
         LandingScreen.routeName: (context) => LandingScreen(),
         LoginScreen.routeName: (context) => LoginScreen(),
         SignUpScreen.routeName: (context) => SignUpScreen(),

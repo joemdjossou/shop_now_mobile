@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_clip_shadow/flutter_clip_shadow.dart';
-import 'package:shop_now_mobile/screens/loginScreen.dart';
+import 'package:shop_now_mobile/screens/login_screen.dart';
 import 'package:shop_now_mobile/screens/signUpScreen.dart';
 
 import '../const/app_colors.dart';
