@@ -54,7 +54,135 @@ class LoginScreen extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                     ),
-                    AppGaps.hGap40,
+                    AppGaps.hGap20,
+                    // Add account type selection using radio buttons
+                    Container(
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        color: Colors.transparent,
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(
+                          color: AppColors.primaryMaterialColor.shade200,
+                          width: 1,
+                        ),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Select Account Type:',
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium
+                                ?.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                  color:
+                                      AppColors.primaryMaterialColor.shade900,
+                                ),
+                          ),
+                          AppGaps.hGap10,
+                          // First row with two radio buttons
+                          Row(
+                            children: [
+                              // First radio button
+                              Expanded(
+                                child: RadioListTile<String>(
+                                  title: Text(
+                                    'Customer',
+                                    style:
+                                        Theme.of(context).textTheme.bodyMedium,
+                                  ),
+                                  value: 'customer',
+                                  groupValue:
+                                      controller.selectedAccountType?.value ??
+                                          'customer',
+                                  onChanged: (value) {
+                                    controller.selectedAccountType?.value =
+                                        value ?? 'customer';
+                                    controller.update();
+                                  },
+                                  contentPadding: EdgeInsets.zero,
+                                  activeColor: AppColors.orangeColor,
+                                  dense: true,
+                                ),
+                              ),
+                              // Second radio button
+                              Expanded(
+                                child: RadioListTile<String>(
+                                  title: Text(
+                                    'Seller',
+                                    style:
+                                        Theme.of(context).textTheme.bodyMedium,
+                                  ),
+                                  value: 'seller',
+                                  groupValue:
+                                      controller.selectedAccountType?.value ??
+                                          'customer',
+                                  onChanged: (value) {
+                                    controller.selectedAccountType?.value =
+                                        value ?? 'seller';
+                                    controller.update();
+                                  },
+                                  contentPadding: EdgeInsets.zero,
+                                  activeColor: AppColors.orangeColor,
+                                  dense: true,
+                                ),
+                              ),
+                            ],
+                          ),
+                          // Second row with two radio buttons
+                          Row(
+                            children: [
+                              // Third radio button
+                              Expanded(
+                                child: RadioListTile<String>(
+                                  title: Text(
+                                    'Buyer',
+                                    style:
+                                        Theme.of(context).textTheme.bodyMedium,
+                                  ),
+                                  value: 'buyer',
+                                  groupValue:
+                                      controller.selectedAccountType?.value ??
+                                          'customer',
+                                  onChanged: (value) {
+                                    controller.selectedAccountType?.value =
+                                        value ?? 'buyer';
+                                    controller.update();
+                                  },
+                                  contentPadding: EdgeInsets.zero,
+                                  activeColor: AppColors.orangeColor,
+                                  dense: true,
+                                ),
+                              ),
+                              // Fourth radio button
+                              Expanded(
+                                child: RadioListTile<String>(
+                                  title: Text(
+                                    'Shopper',
+                                    style:
+                                        Theme.of(context).textTheme.bodyMedium,
+                                  ),
+                                  value: 'shopper',
+                                  groupValue:
+                                      controller.selectedAccountType?.value ??
+                                          'customer',
+                                  onChanged: (value) {
+                                    controller.selectedAccountType?.value =
+                                        value ?? 'shopper';
+                                    controller.update();
+                                  },
+                                  contentPadding: EdgeInsets.zero,
+                                  activeColor: AppColors.orangeColor,
+                                  dense: true,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    AppGaps.hGap20,
                     CustomTextInput(
                       controller: controller.emailController,
                       labelText: 'Email',
@@ -106,7 +234,7 @@ class LoginScreen extends StatelessWidget {
                         Navigator.of(context)
                             .pushReplacementNamed(ForgetPwScreen.routeName);
                       },
-                      child: Text(
+                      child: const Text(
                         "Forget your password?",
                         textAlign: TextAlign.center,
                       ),
