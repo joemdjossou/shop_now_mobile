@@ -14,7 +14,7 @@ class ProfileScreenController extends GetxController {
       messageText: 'Are you sure you want to sign out ?',
       onYesTap: () async {
         await FirebaseAuth.instance.signOut();
-        Get.offAll(const LoginScreen());
+        Get.offAllNamed(LoginScreen.routeName);
       },
       yesButtonText: 'Yes',
       noButtonText: 'No',
