@@ -10,6 +10,9 @@ import 'package:shop_now_mobile/utils/dialogs.dart';
 import 'package:shop_now_mobile/utils/helper.dart';
 
 class LoginScreenController extends GetxController {
+  // Add this line to your existing controller
+  Rx<String>? selectedAccountType = 'customer'.obs;
+
   //text editing controllers
   final emailController = TextEditingController();
 
